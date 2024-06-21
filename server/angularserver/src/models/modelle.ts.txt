@@ -1,0 +1,37 @@
+import mongoose, { Schema } from 'mongoose';
+import model, { Model } from 'mongoose';
+//import { type } from 'os';
+const version = "004"
+
+
+
+var ipLogNewSchema = new mongoose.Schema({
+    ipAddress: { type: String, required: true },
+    urls:Array,
+    counter: { type: Number, default: 0 },
+    countergesamt: { type: Number, default: 0 },
+    gesperrt: { type: Boolean, default: false },
+    create_date: { type: Date, default: Date.now },
+    last_date: { type: Date, default: Date.now }
+
+});
+/*
+var rateLimitSchema = new mongoose.Schema({
+    _id: { type: String, required: true },
+    counter: { type: Number, default: 0 },
+    expirationDate: { type: Date, default: Date.now }
+
+});
+*/
+
+// 24 Std.
+ipLogNewSchema.index({create_date: 1},{expireAfterSeconds: 60 * 60 * 24*30 });
+
+export var ipLog = mongoose.model('ipNewLog', ipLogNewSchema);
+// export var rateLimitLog = mongoose.model('expressRateRecords', rateLimitSchema,"expressRateRecords");
+
+//???150324 const SessionSchema = new mongoose.Schema({}, { strict: false });
+// export var SessionDBX = mongoose.model('sessions', SessionSchema, 'sessions');
+
+
+

@@ -1,0 +1,12 @@
+.chip-container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start ;
+    height: 50px; /* Adjust as necessary */
+  }
+  .example-card {
+    top: 200px;
+    min-width: 300;
+    max-width: 600px;
+  }

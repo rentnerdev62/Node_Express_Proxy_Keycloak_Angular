@@ -1,0 +1,11 @@
+.startApp {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 90px);
+    margin: 10px;
+    background-color:transparent;
+}

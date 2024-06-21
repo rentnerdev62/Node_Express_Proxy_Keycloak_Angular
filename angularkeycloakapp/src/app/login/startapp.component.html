@@ -1,0 +1,9 @@
+<div class="startApp">
+<h1><p>Angular Demo</p></h1>
+@if(isStarted) {
+<app-check />
+}
+@if(keycloak.islocaltest) {
+    <button mat-flat-button color="primary" (click)="toogleprofile()">Toogle Profile</button>
+}
+</div>

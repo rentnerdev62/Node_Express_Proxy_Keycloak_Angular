@@ -1,0 +1,23 @@
+
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Chuck Norris Witze</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      
+      <hr />
+       
+      <p><img [src]="joke?.icon_url" /></p>
+      <div style="border: solid 2px black; padding: 5px;">
+      <p>{{ joke?.value }}</p>
+      <p><a [href]="joke?.url">{{ joke?.url }}</a></p>
+    </div>
+    <hr>
+    </mat-card-content>
+    <mat-card-footer class="example-card-footer chip-container">
+      <mat-chip-set  aria-label="Chihuahua traits">
+          <mat-chip (click)="getJoke()">Nächster Witz</mat-chip>
+        
+      </mat-chip-set>
+    </mat-card-footer>
+  </mat-card>

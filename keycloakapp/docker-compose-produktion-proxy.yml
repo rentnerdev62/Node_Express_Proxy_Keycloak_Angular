@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+    keycloak:
+        container_name: keycloak
+        ports:
+            - 8443:8443
+
+        environment:
+            - KEYCLOAK_ADMIN=admin
+            - KEYCLOAK_ADMIN_PASSWORD=admin #Nicht in Produktion
+            - KC_HTTP_ENABLED=false
+            - KC_HTTPS_CERTIFICATE_FILE=/opt/keycloak/ssl/<Zertifikats Datei>
+            - KC_HTTPS_CERTIFICATE_KEY_FILE=/opt/keycloak/ssl/<Key Datei>
+            # für Proxy (Node Express Proxy Middleware)
+            - KC_HOSTNAME=<https://xxx.yy> </Proxy Pfad/>
+            - KC_PROXY_HEADERS=forwarded
+            - KC_HOSTNAME_BACKCHANNEL_DYNAMIC=true
+            # Ende Proxy (Node Express Proxy Middleware)
+        volumes:
+            # Custom Konfiguration
+            - ./keycloak/conf:/opt/keycloak/conf
+            # Import / Export der realm
+            - ./keycloak/realms:/opt/keycloak/data/import
+            # Custom Logins
+            - ./keycloak/themes:/opt/keycloak/themes
+            # ssl Zertifikate
+            - ./keycloak/ssl:/opt/keycloak/ssl
+
+            #Zum üerschreiben des Dockerfile entrypoint für Produktion
+
+        entrypoint: ["/opt/keycloak/bin/kc.sh", "-v", "start", "--optimized"]
+
+        image: <Image Container Dockerfile oder Docker Hub

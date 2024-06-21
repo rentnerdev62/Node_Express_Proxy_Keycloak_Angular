@@ -1,0 +1,30 @@
+{
+  "realm" : "myrealm",
+  "users" : [ {
+    "id" : "a8052663-2901-43d9-b7d6-8551e400d585",
+    "username" : "guido",
+    "firstName" : "gu",
+    "lastName" : "gu",
+    "email" : "guido@guido.de",
+    "emailVerified" : false,
+    "createdTimestamp" : 1718522456495,
+    "enabled" : true,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "f9ec3cad-1d73-40d8-85fe-5c470653e49b",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1718522471995,
+      "secretData" : "{\"value\":\"ICDwfQKdIyrdAGCGgka4q7S9PcC5dmuCLKi13FkZ3tc=\",\"salt\":\"rmq4u3FJ5+X4YHzgUgelRA==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-myrealm" ],
+    "clientRoles" : {
+      "myapp" : [ "Demo Refill Admin" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}

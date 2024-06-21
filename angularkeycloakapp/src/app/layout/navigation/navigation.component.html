@@ -1,0 +1,75 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer  class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'navigation' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'over'"
+      [opened]= false>
+    
+    <mat-nav-list>
+      @if(hasdemoRefill() || hasadminRefill()) {
+        
+        <button mat-flat-button class="menuButtons" (click)="switchto(refillroles.Stufe1)"  color="primary" >Allgemein</button>
+        <hr>
+      }
+      @if(hasprofileRefill() || hasadminRefill()) {
+        
+        <button mat-flat-button class="menuButtons" (click)="switchto(refillroles.Stufe2)" color="primary">Profile</button>
+        <hr>
+      }
+      @if(haschucknorrisRefill() || hasadminRefill()) {
+        
+        <button mat-flat-button class="menuButtons" (click)="switchto(refillroles.Stufe3)"  color="primary">Chuck Norris</button>
+        <hr>
+      }
+      @if(haswitzeRefill() || hasadminRefill()) {
+        
+        <button mat-flat-button class="menuButtons" (click)="switchto(refillroles.Stufe4)"  color="primary">Witze</button>
+        <hr>
+      }
+      @if(hasadminRefill()) {
+        <hr>
+        <button mat-flat-button class="menuButtons" (click)="switchto(refillroles.Alle)"  color="primary">Keycloak Console</button>
+        <hr>
+      }
+      <button mat-flat-button class="menuButtons" (click)="refillLogout()"  color="primary">Logout</button>
+     
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="menuToolbar" color="accent">
+      <!--@if (isHandset$ | async) {-->
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      <!--}-->
+      <div style="justify-items: center;">
+      <span>Demo App mit Angular und Keycloak</span>
+      </div>
+      
+    </mat-toolbar>
+    <div style="display: flex; justify-content: center;align-items: center;">
+    <!--<app-startapp />-->
+   
+    @if(showDemo == refillroles.Stufe1 ) {
+      <app-allgemein />
+    }
+    @else if(showDemo == refillroles.Stufe2 ) {
+      <app-profile />
+    }
+    @else if(showDemo == refillroles.Stufe3 ) {
+      <app-chucknorris />
+    }
+
+    @else if(showDemo == refillroles.Stufe4 ) {
+      <app-witze />
+    }
+    @else() {
+      <app-startapp />
+    }
+    </div>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

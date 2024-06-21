@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+     
+  MyproxyServer:
+    build: .
+    image: proxyapp:01.02
+    
+    container_name: myProxyServer
+    restart: on-failure:1
+    ports:
+      - 443:443
+    volumes:
+    - ./dist/:/home/node/dist/
+    
+    # Zugriff auf gemeinsame ssl Dateien
+    - ./dist/ssl/:/home/node/dist/ssl
+
+  
+    command: npm run start
+
+    environment:
+        PORT: 443
+        USEDOCKER: "0"
+        USESSL: "0"

@@ -1,0 +1,23 @@
+{
+  "name": "my-keycloak-angular-app",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "docker compose down && docker compose up --build",
+    "start:dev": "docker compose down && docker-compose up",
+    "importKeycloak":"docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --dir /opt/keycloak/data/import --override true",
+    "exportKeycloak":"docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --realm myrealm --dir /opt/keycloak/data/import",
+    "dockerpush": "docker compose build && docker push <github Benutzer>/<Image Name>",
+    "dockerclean": "docker system prune --all --volumes",
+    "docker:build": "docker build -t mykeycloakapp . "
+    
+  },
+  "private": true,
+  "dependencies": {
+    "keycloak-js": "^25.0.0",
+    "tslib": "^2.3.0"
+    
+  },
+  "devDependencies": {
+    "typescript": "~5.4.2"
+  }
+}

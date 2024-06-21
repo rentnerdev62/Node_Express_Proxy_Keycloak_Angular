@@ -1,0 +1,45 @@
+{
+  "name": "myproxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "tsc && node dist/index.js",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "stop": "docker compose down",
+    "start1": "docker compose down && docker compose up",
+    "dockerpush": "docker push <Dockerimage / Docker Hub>",
+    "dockerclean": "docker system prune --all --volumes",
+    "docker:build": "docker build -t proxyapp:01.02 ."
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.11",
+    "connect-mongo": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "express-session": "^1.18.0",
+    "guid-typescript": "^1.0.9",
+    "helmet": "^7.1.0",
+    "http-proxy-middleware": "^2.0.6",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1",
+    "rand-token": "^1.0.1",
+    "rate-limit-mongo": "^2.3.2"
+    
+  },
+  "devDependencies": {
+    "@types/config": "^3.3.4",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/express-session": "^1.18.0",
+    "copyfiles": "^2.4.1",
+    "typescript": "5.4.4"
+  }
+}

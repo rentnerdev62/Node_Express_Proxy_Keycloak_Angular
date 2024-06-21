@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+     
+  startServer:
+    build: .
+    image: angularserver:01.01
+    
+    container_name: mynodeAngularserver
+    restart: on-failure:1
+    ports:
+      - 4100:4100
+      
+      - 27017:27017
+    #  - 9229:9229  # debugger port
+    volumes:
+    - ./dist/:/home/node/dist/
+  
+    command: npm run start:docker
+
+    environment:
+        PORT: 4100
+        USEDOCKER: "0"
+        USESSL: "0"

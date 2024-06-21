@@ -1,0 +1,21 @@
+
+name: authserver
+services:
+    keycloak:
+        container_name: keycloak
+        ports:
+            - 8080:8080
+        environment:
+          - KC_HTTP_ENABLED=true
+          
+            #- KEYCLOAK_ADMIN=admin
+            #- KEYCLOAK_ADMIN_PASSWORD=admin
+        volumes:
+            - ./keycloak/conf:/opt/keycloak/conf
+            - ./keycloak/realms:/opt/keycloak/data/import
+            - ./keycloak/themes:/opt/keycloak/themes
+            # ssl Zertifikate
+            - ./keycloak/ssl:/opt/keycloak/ssl
+
+        #Image aus Dockerfile oder Docker Hub
+        image: mykeycloakapp 
