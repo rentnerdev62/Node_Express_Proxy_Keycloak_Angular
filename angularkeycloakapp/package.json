@@ -4,16 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "start1": "docker compose down && docker compose up --build -d",
-    "start2": "docker compose down && docker-compose up",
-    "import1": "docker compose exec keycloak /opt/keycloak/bin/kc.sh import --dir /opt/keycloak/data/import --override true",
-    "export1": "docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --realm myrealm --dir /opt/keycloak/data/import",
-    "buildmykey": "docker build -t dieter1962/nodeimages:99.01 .",
-    "dockerpush": "docker compose build && docker push dieter1962/nodeimages:99.01",
-    "dockerclean": "docker system prune --all --volumes && npm run dockerpush"
+    "build": "ng build"
+    
   },
   "private": true,
   "dependencies": {
